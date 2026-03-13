@@ -1,0 +1,30 @@
+export interface HotspotData {
+  id: string;
+  targetRoomId: string;
+  /** Longitude in degrees (-180 to 180) */
+  lon: number;
+  /** Latitude in degrees (-85 to 85) */
+  lat: number;
+}
+
+export interface POIData {
+  id: string;
+  label: string;
+  description?: string;
+  lon: number;
+  lat: number;
+  icon?: string; // emoji or label
+}
+
+export interface Room {
+  id: string;
+  name: string;
+  /** URL or local path to a 360° equirectangular image */
+  imageUrl: string;
+  hotspots: HotspotData[];
+  pois: POIData[];
+  /** Starting longitude when entering this room */
+  initialLon?: number;
+  /** Starting latitude when entering this room */
+  initialLat?: number;
+}
