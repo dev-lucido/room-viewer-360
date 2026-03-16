@@ -1,4 +1,6 @@
 import type { Room } from "./types";
+import living from "/rooms/Living_Room.jpg";
+import bedroom from "/rooms/Bedroom.jpg";
 import pool from "/rooms/Pool_Indoor.jpg";
 
 /**
@@ -17,22 +19,20 @@ export const ROOMS: Room[] = [
   {
     id: "living-room",
     name: "Living Room",
-    // Using a freely available equirectangular sample image 
-    // imageUrl: "/images/Living-Room.jpg",
-    imageUrl: "https://live.staticflickr.com/65535/55145298413_d47b6c84a9_6k.jpg",
+    imageUrl: living,
     initialLon: 0,
     initialLat: 0,
     hotspots: [
       {
-        id: "hs-to-kitchen",
-        targetRoomId: "kitchen",
-        lon: 45,
-        lat: -15,
+        id: "hs-to-pool",
+        targetRoomId: "pool",
+        lon: -14,
+        lat: 0,
       },
       {
         id: "hs-to-bedroom",
         targetRoomId: "bedroom",
-        lon: -90,
+        lon: -20,
         lat: -10,
       },
     ],
@@ -41,40 +41,15 @@ export const ROOMS: Room[] = [
         id: "poi-sofa",
         label: "Modern Sofa",
         description: "Italian leather sofa, seats 4",
-        lon: 20,
-        lat: 5,
+        lon: 0,
+        lat: -15,
         icon: "🛋️",
       },
       {
-        id: "poi-tv",
-        label: "Smart TV",
-        description: '75" 4K OLED Display',
-        lon: -30,
-        lat: 2,
-        icon: "📺",
-      },
-    ],
-  },
-  {
-    id: "kitchen",
-    name: "Kitchen",
-    imageUrl: pool,
-    initialLon: 180,
-    initialLat: 0,
-    hotspots: [
-      {
-        id: "hs-back-to-living",
-        targetRoomId: "living-room",
-        lon: 0,
-        lat: -10,
-      },
-    ],
-    pois: [
-      {
-        id: "poi-island",
-        label: "Kitchen Island",
+        id: "poi-kitchen",
+        label: "Kitchen",
         description: "Marble countertop with under-cabinet storage",
-        lon: 60,
+        lon: -90,
         lat: -5,
         icon: "🍳",
       },
@@ -82,8 +57,8 @@ export const ROOMS: Room[] = [
         id: "poi-fridge",
         label: "Refrigerator",
         description: "Smart fridge with inventory tracking",
-        lon: -60,
-        lat: 0,
+        lon: -50,
+        lat: -15,
         icon: "🧊",
       },
     ],
@@ -91,8 +66,48 @@ export const ROOMS: Room[] = [
   {
     id: "bedroom",
     name: "Bedroom",
-    imageUrl: "/rooms/Bedroom.jpg",
-    initialLon: -45,
+    imageUrl: bedroom,
+    initialLon: 180,
+    initialLat: 0,
+    hotspots: [
+      {
+        id: "hs-back-to-living",
+        targetRoomId: "living-room",
+        lon: -90,
+        lat: -10,
+      },
+      {
+        id: "hs-to-pool",
+        targetRoomId: "pool",
+        lon: 87,
+        lat: -5,
+      },
+    ],
+    pois: [
+      
+      {
+        id: "poi-bed",
+        label: "King Bed",
+        description: "Memory foam mattress with adjustable base",
+        lon: 185,
+        lat: -20,
+        icon: "🛏️",
+      },
+      {
+        id: "poi-tv",
+        label: "Smart TV",
+        description: '75" 4K OLED Display',
+        lon: 15,
+        lat: 2,
+        icon: "📺",
+      },
+    ],
+  },
+  {
+    id: "pool",
+    name: "Indoor Pool",
+    imageUrl: pool,
+    initialLon: 175,
     initialLat: 0,
     hotspots: [
       {
@@ -103,19 +118,12 @@ export const ROOMS: Room[] = [
       },
     ],
     pois: [
-      {
-        id: "poi-bed",
-        label: "King Bed",
-        description: "Memory foam mattress with adjustable base",
-        lon: 0,
-        lat: 0,
-        icon: "🛏️",
-      },
+      
       {
         id: "poi-window",
         label: "Bay Window",
         description: "Floor-to-ceiling panoramic view",
-        lon: -120,
+        lon: 0,
         lat: 5,
         icon: "🪟",
       },
