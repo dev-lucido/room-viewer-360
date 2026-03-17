@@ -458,7 +458,7 @@ export default function Minimap({ viewerRef, room, rooms, currentRoomId }: Props
         const lon = viewerRef.current?.getLon() ?? 0;
 
         // lon=0 → looking "down" on map (+Y axis), increasing lon → clockwise
-        const headingRad = ((-lon - 90) * Math.PI) / 180;
+        const headingRad = ((lon - 90) * Math.PI) / 180;
         const halfFov = (FOV_DEG / 2 / 180) * Math.PI;
         const coneLen = 44;
 
