@@ -5,6 +5,9 @@ export interface HotspotData {
   lon: number;
   /** Latitude in degrees (-85 to 85) */
   lat: number;
+   /** Position on floor plan image, 0–1 normalized */
+  mapX?: number;
+  mapY?: number;
 }
 
 export interface POIData {
@@ -14,6 +17,9 @@ export interface POIData {
   lon: number;
   lat: number;
   icon?: string; // emoji or label
+  /** Position on floor plan image, 0–1 normalized */
+  mapX?: number;
+  mapY?: number;
 }
 
 export interface Room {
@@ -27,4 +33,7 @@ export interface Room {
   initialLon?: number;
   /** Starting latitude when entering this room */
   initialLat?: number;
+  /** Center of this room on the floor plan image, 0–1 normalized */
+  mapX?: number;
+  mapY?: number;
 }
